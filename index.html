@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ankit Maurya | Digital Marketer & Web Developer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-darker: #000000;
+            --bg-dark: #070707;
+            --bg-card: #111111;
+            --orange: #FF6600;
+            --orange-hover: #e05a00;
+            --text-light: #ffffff;
+            --text-gray: #a1a1aa;
+            --border: rgba(255,255,255,0.08);
+            --font-head: 'Manrope', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { scroll-behavior: smooth; overflow-x: hidden; width: 100%; position: relative; }
+        body { font-family: var(--font-body); background: var(--bg-darker); color: var(--text-gray); }
+
+        h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); font-weight: 700; color: var(--text-light); }
+        a { text-decoration: none; transition: 0.3s; }
+        ul { list-style: none; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+        .section { padding: 100px 0; }
+        .bg-alternate { background: var(--bg-dark); }
+        
+        /* Buttons */
+        .btn { display: inline-block; padding: 14px 32px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; font-family: var(--font-head); border: 2px solid transparent; text-align: center; }
+        .btn-orange { background: linear-gradient(45deg, var(--orange), #ff8c00); color: #fff; box-shadow: 0 10px 20px rgba(255, 102, 0, 0.2); }
+        .btn-orange:hover { background: var(--orange-hover); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(255, 102, 0, 0.4); }
+        .btn-outline { background: transparent; border-color: var(--border); color: var(--text-light); }
+        .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+        /* Titles */
+        .sec-title { text-align: center; margin-bottom: 60px; }
+        .sec-title span { color: var(--orange); font-size: 14px; text-transform: uppercase; letter-spacing: 3px; font-weight: 800; display: block; margin-bottom: 15px; }
+        .sec-title h2 { font-size: 45px; line-height: 1.2; text-transform: capitalize; }
+        
+        .orange-text { color: var(--orange); }
+
+        /* Navbar */
+        nav { position: fixed; top: 0; width: 100%; padding: 20px 0; z-index: 1000; transition: 0.3s; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: var(--font-head); font-size: 26px; font-weight: 800; color: #fff; display: flex; align-items: center; gap: 5px; letter-spacing: -1px; }
+        .logo span { color: var(--orange); }
+        
+        .nav-links { display: flex; gap: 35px; align-items: center; }
+        .nav-links a { color: var(--text-gray); font-size: 15px; font-weight: 600; }
+        .nav-links a:hover { color: var(--text-light); }
+        .menu-toggle { display: none; color: #fff; font-size: 26px; cursor: pointer; }
+
+        /* Hero Redesign! (Split Layout) */
+        .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding-top: 120px; padding-bottom: 50px;}
+        .hero-glow { position: absolute; top: 40%; left: 10%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,102,0,0.1) 0%, rgba(0,0,0,0) 70%); z-index: -1; }
+        
+        .hero-wrap { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+        
+        .hero-text { flex: 1; text-align: left; }
+        .hero-badge { display: inline-block; padding: 10px 20px; border-radius: 30px; background: rgba(255,102,0,0.08); border: 1px solid rgba(255,102,0,0.2); color: var(--orange); font-size: 13px; font-family: var(--font-head); font-weight: 700; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .hero-text h1 { font-size: 65px; line-height: 1.15; margin-bottom: 25px; letter-spacing: -2px; }
+        .hero-text p { font-size: 18px; color: var(--text-gray); line-height: 1.6; margin-bottom: 40px; max-width: 500px; }
+        .hero-btns { display: flex; gap: 15px; }
+
+        .hero-visual { flex: 1; position: relative; display: flex; justify-content: center; }
+        .abstract-shape { width: 100%; max-width: 500px; border-radius: 30px; box-shadow: 0 30px 60px rgba(0,0,0,0.8); object-fit: cover; }
+        .glass-card { position: absolute; background: rgba(15,15,15,0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); padding: 15px 20px; border-radius: 15px; display: flex; align-items: center; gap: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
+        .glass-card i { font-size: 24px; color: var(--orange); }
+        .glass-card h4 { font-size: 15px; margin: 0; color: #fff; font-family: var(--font-head); }
+        .glass-card span { font-size: 12px; color: var(--text-gray); }
+
+        .gc-1 { top: 15%; left: -30px; }
+        .gc-2 { bottom: 15%; right: -30px; }
+
+        .floating { animation: float 6s ease-in-out infinite; }
+        .floating-delay { animation: float 6s ease-in-out infinite 2s; }
+        .floating-delay-2 { animation: float 6s ease-in-out infinite 4s; }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        /* About */
+        .about-wrap { display: flex; align-items: center; gap: 60px; }
+        .about-img { flex: 1; position: relative; }
+        .about-img img { width: 100%; border-radius: 20px; position: relative; z-index: 2; box-shadow: 0 20px 40px rgba(0,0,0,0.5); border: 1px solid var(--border); }
+        .about-shape { position: absolute; top: -20px; left: -20px; width: 100%; height: 100%; background: linear-gradient(135deg, var(--orange), transparent); border-radius: 20px; z-index: 1; opacity: 0.5; }
+        
+        .about-text { flex: 1; }
+        .about-text h2 { font-size: 40px; margin-bottom: 25px; line-height: 1.2; }
+        .about-text p { color: var(--text-gray); margin-bottom: 35px; line-height: 1.7; font-size: 16px; }
+        
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-item { background: var(--bg-card); border: 1px solid var(--border); padding: 25px 20px; border-radius: 15px; text-align: left; transition: 0.3s; }
+        .stat-item:hover { border-color: var(--orange); box-shadow: 0 10px 20px rgba(255,102,0,0.1); transform: translateY(-5px); }
+        .stat-item h4 { font-size: 18px; margin-bottom: 8px; color: var(--text-light); }
+        .stat-item p { font-size: 14px; color: var(--text-gray); margin: 0; }
+
+        /* Marquee */
+        .marquee-wrapper { width: 100%; overflow: hidden; padding: 60px 0; background: var(--bg-darker); margin: 0; position: relative; }
+        .marquee-inner { background: var(--orange); padding: 25px 0; width: 110%; margin-left: -5%; transform: rotate(-2deg); display: flex; white-space: nowrap; box-shadow: 0 0 30px rgba(255,102,0,0.2); }
+        .marquee-content { display: flex; animation: scroll 20s linear infinite; }
+        .marquee-content span { font-size: 24px; font-weight: 800; font-family: var(--font-head); color: #fff; margin: 0 30px; text-transform: uppercase; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Works */
+        .works-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .work-card { border-radius: 20px; overflow: hidden; background: var(--bg-card); transition: 0.4s; position: relative; border: 1px solid var(--border); }
+        .work-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(255,102,0,0.15); border-color: var(--orange); }
+        .work-img { height: 300px; width: 100%; border-bottom: 1px solid var(--border); overflow: hidden; background: #050505; display:flex; align-items:center; justify-content:center; }
+        .work-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; object-position: top; opacity: 0.9; }
+        .work-card:hover .work-img img { transform: scale(1.05); opacity: 1; }
+        .work-info { padding: 30px; display: flex; justify-content: space-between; align-items: center; background: var(--bg-card); }
+        .work-info h3 { font-size: 22px; margin-bottom: 5px; }
+        .work-info p { color: var(--text-gray); font-size: 15px; }
+        .work-icon { width: 50px; height: 50px; background: rgba(255,255,255,0.05); color: #fff; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 18px; transition: 0.3s; }
+        .work-card:hover .work-icon { background: var(--orange); transform: rotate(-45deg); }
+
+        /* Brands */
+        .brands-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 50px; }
+        .brand-item { background: var(--bg-card); padding: 40px 20px; text-align: center; border-radius: 15px; border: 1px solid var(--border); color: var(--text-gray); transition: 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; }
+        .brand-item i { font-size: 45px; transition: 0.3s; }
+        .brand-item span { font-size: 16px; font-family: var(--font-head); color: #fff; font-weight: 600; letter-spacing: 1px; }
+        .brand-item:hover { background: var(--bg-darker); border-color: var(--orange); box-shadow: 0 10px 30px rgba(255,102,0,0.1); transform: translateY(-5px); }
+        .brand-item:hover i { color: var(--orange); }
+
+        /* Process */
+        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .process-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 40px 30px; position: relative; transition: 0.3s; text-align: left; overflow: hidden; }
+        .process-card:hover { border-color: var(--orange); box-shadow: 0 15px 30px rgba(255, 102, 0, 0.1); transform: translateY(-5px); }
+        .step-num { font-size: 60px; font-family: var(--font-head); font-weight: 800; color: rgba(255, 255, 255, 0.05); position: absolute; top: 10px; right: 20px; transition: 0.3s; }
+        .process-card:hover .step-num { color: rgba(255, 102, 0, 0.2); }
+        .p-icon { width: 60px; height: 60px; background: rgba(255,102,0,0.1); color: var(--orange); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 25px; transition: 0.3s; }
+        .process-card:hover .p-icon { background: var(--orange); color: #fff; }
+        .process-card h4 { font-size: 22px; margin-bottom: 15px; }
+        .process-card p { font-size: 15px; color: var(--text-gray); line-height: 1.6; }
+
+        /* Pricing */
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .price-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 50px 40px; text-align: center; transition: 0.4s; position: relative; overflow: hidden; }
+        
+        .price-card.active { border-color: var(--orange); transform: scale(1.05); box-shadow: 0 20px 50px rgba(255,102,0,0.15); background: linear-gradient(180deg, var(--bg-card) 0%, rgba(255,102,0,0.05) 100%); }
+        .price-card.active::before { content: 'Best Value'; position: absolute; top: 20px; right: -35px; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 40px; transform: rotate(45deg); }
+        
+        .price-card h3 { font-size: 24px; margin-bottom: 20px; }
+        .price-val { font-size: 50px; font-weight: 800; font-family: var(--font-head); margin-bottom: 35px; color: var(--orange); }
+        .price-val span { font-size: 16px; font-weight: 500; color: var(--text-gray); }
+        
+        .price-features { margin-bottom: 40px; text-align: left; }
+        .price-features li { margin-bottom: 18px; color: var(--text-gray); display: flex; align-items: center; gap: 12px; font-size: 15px; }
+        .price-features li i { color: var(--orange); font-size: 14px; }
+        
+        .price-card .btn { width: 100%; border-radius: 10px; }
+        .price-card:not(.active) .btn { background: rgba(255,255,255,0.05); color: var(--text-light); border: 1px solid var(--border); }
+        .price-card:not(.active) .btn:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+        .price-card.active .btn { background: var(--orange); color: #fff; border-color: transparent;}
+
+        /* Testimonials */
+        .testi-wrap { display: flex; align-items: center; gap: 80px; }
+        .testi-content { flex: 1; }
+        .quotes-icon { font-size: 60px; color: rgba(255,102,0,0.2); margin-bottom: 30px; }
+        .testi-text { font-size: 22px; font-style: italic; margin-bottom: 40px; color: var(--text-light); line-height: 1.7; }
+        .testi-author h4 { font-size: 22px; margin-bottom: 5px; }
+        .testi-author p { color: var(--text-gray); font-size: 15px; font-weight: 500; }
+        
+        /* Clients Nav */
+        .client-nav { display: flex; gap: 15px; margin-top: 30px; }
+        .client-dot { width: 60px; height: 60px; border-radius: 50%; opacity: 0.4; cursor: pointer; border: 3px solid transparent; transition: 0.3s; background-size: cover; background-position: center; filter: grayscale(100%); }
+        .client-dot.active { opacity: 1; border-color: var(--orange); transform: scale(1.1); filter: grayscale(0%); }
+
+        .testi-img { flex: 1; position: relative; text-align: center; }
+        .blob-bg { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 450px; height: 450px; background: rgba(255,102,0,0.05); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; z-index: 1; animation: morph 8s ease-in-out infinite; border: 1px solid rgba(255,102,0,0.1); }
+        @keyframes morph { 0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; } 34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; } 67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; } }
+        .testi-avatar { position: relative; z-index: 2; width: 350px; border-radius: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); object-fit: cover; }
+
+        /* Footer */
+        footer { background: #030303; padding: 80px 0 40px; border-top: 1px solid var(--border); position: relative; overflow: hidden; }
+        .footer-glow { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 400px; background: radial-gradient(ellipse at top, rgba(255,102,0,0.1) 0%, transparent 70%); z-index: 1; }
+        
+        .footer-content { position: relative; z-index: 2; }
+        .footer-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; padding-bottom: 50px; border-bottom: 1px solid var(--border); }
+        
+        .footer-cta h2 { font-size: 60px; margin-bottom: 15px; letter-spacing: -2px; }
+        .footer-cta p { color: var(--text-gray); max-width: 450px; line-height: 1.6; font-size: 15px; }
+        
+        .target-wrapper { display: flex; justify-content: flex-end; }
+        .target-graphic { width: 100px; height: 100px; background: var(--orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; color: #fff; transition: 0.4s; box-shadow: 0 0 30px rgba(255,102,0,0.3); text-decoration: none; }
+        .target-graphic:hover { transform: scale(1.1) rotate(-45deg); box-shadow: 0 0 50px rgba(255,102,0,0.5); }
+
+        .footer-info { display: flex; gap: 40px; flex-wrap: wrap; }
+        .f-item { display: flex; align-items: flex-start; gap: 15px; }
+        .f-icon { width: 45px; height: 45px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--orange); font-size: 16px; flex-shrink: 0; }
+        .f-text { padding-top: 2px; }
+        .f-text h5 { color: var(--text-gray); font-size: 13px; font-weight: 500; margin-bottom: 5px; font-family: var(--font-body); }
+        .f-text a { color: #fff; font-size: 16px; font-weight: 600; font-family: var(--font-head); transition: 0.3s; word-break: break-word; }
+        .f-text a:hover { color: var(--orange); }
+
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; color: var(--text-gray); font-size: 14px; margin-top: 50px;}
+        .footer-bottom-links a { color: var(--text-gray); margin-left: 20px; transition: 0.3s; display: inline-block; }
+        .footer-bottom-links a:hover { color: var(--orange); }
+        
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
+            background-color: #25d366; color: #fff; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 2.2rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 100; transition: 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); }
+
+        /* ------------------------------------- */
+        /* TRULY MOBILE RESPONSIVE FIXES         */
+        /* ------------------------------------- */
+        @media (max-width: 1024px) {
+            .hero-wrap { flex-direction: column; text-align: center; padding-top: 40px; gap: 60px; }
+            .hero-text { text-align: center; display: flex; flex-direction: column; align-items: center; }
+            .hero-text p { margin-left: auto; margin-right: auto; }
+            
+            .about-wrap, .testi-wrap { gap: 40px; }
+            .works-grid { gap: 25px; }
+            .pricing-grid { gap: 25px; }
+            .price-card { padding: 40px 20px; }
+            .brands-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 991px) {
+            .about-wrap, .testi-wrap { flex-direction: column; text-align: center; }
+            .about-text, .testi-content { text-align: left; width: 100%; }
+            .testi-img { margin-top: 40px; width: 100%; }
+            .blob-bg { width: 350px; height: 350px; }
+            .works-grid, .pricing-grid, .process-grid { grid-template-columns: 1fr; }
+            .price-card.active { transform: scale(1); }
+            .brands-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-top { flex-direction: column; text-align: center; gap: 40px; align-items: center; }
+            .target-wrapper { justify-content: center; }
+            
+            .footer-info { flex-direction: column; gap: 25px; align-items: center; text-align: center; }
+            .f-item { flex-direction: column; align-items: center; }
+        }
+
+        @media (max-width: 768px) {
+            .section { padding: 60px 0; }
+            .sec-title h2 { font-size: 32px; }
+            .sec-title { margin-bottom: 40px; }
+            
+            nav .nav-inner { padding: 0 20px; }
+            nav .nav-links { 
+                position: absolute; top: 100%; left: 0; width: 100%; background: var(--bg-card);
+                flex-direction: column; gap: 0; padding: 0; border-bottom: 1px solid var(--border);
+                display: none; box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+            }
+            nav .nav-links.active { display: flex; }
+            nav .nav-links a { padding: 20px; width: 100%; text-align: center; border-bottom: 1px solid var(--border); }
+            nav .desktop-btn { display: none; }
+            nav .menu-toggle { display: block; }
+            
+            /* Enhanced Mobile Hero Adjustments */
+            .hero { padding-top: 100px; padding-bottom: 50px; min-height: auto; }
+            .hero-text h1 { font-size: 42px; line-height: 1.1; margin-bottom: 15px; }
+            .hero-text p { font-size: 15px; margin-bottom: 30px; }
+            .hero-badge { font-size: 11px; padding: 8px 15px; margin-bottom: 20px; }
+            .hero-btns { flex-direction: column; width: 100%; gap: 10px; }
+            .hero-btns .btn { width: 100%; }
+            .hero-visual { width: 100%; display: flex; justify-content: center; position: relative; }
+            .abstract-shape { width: 90%; max-width: 320px; border-radius: 20px; }
+            .gc-1 { top: 5%; left: 0%; padding: 10px 15px; }
+            .gc-2 { bottom: 5%; right: 0%; padding: 10px 15px; }
+            .glass-card i { font-size: 16px; }
+            .glass-card h4 { font-size: 13px; }
+            .glass-card span { font-size: 10px; margin-top: 2px; display: block; }
+            
+            .about-text h2 { font-size: 28px; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .brand-item { padding: 20px 10px; }
+            .brand-item i { font-size: 35px; }
+            
+            .work-img { height: 220px; }
+            
+            .marquee-wrapper { padding: 30px 0; }
+            .marquee-inner { padding: 12px 0; }
+            .marquee-content span { font-size: 18px; }
+            
+            /* Correct Footer Sizes for Mobile! */
+            footer { padding: 50px 0 30px; }
+            .footer-top { margin-bottom: 40px; padding-bottom: 30px; }
+            .footer-cta h2 { font-size: 38px; line-height: 1.1; margin-bottom: 10px; }
+            .footer-cta p { font-size: 14px; }
+            
+            /* Make this orange button much smaller on mobile */
+            .target-graphic { width: 70px; height: 70px; font-size: 30px; box-shadow: 0 0 20px rgba(255,102,0,0.3); } 
+            
+            .footer-info { gap: 30px; }
+            .f-item { width: 100%; flex-direction: row; align-items: center; text-align: left; }
+            .f-text a { font-size: 14px; word-break: break-all; } /* Prevents Email wrap layout crash */
+            .f-text h5 { font-size: 12px; }
+            
+            .footer-bottom { flex-direction: column; align-items: center; gap: 20px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; margin-top: 30px; }
+            .footer-bottom-links { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
+            .footer-bottom-links a { margin: 0; }
+            
+            .whatsapp-float { bottom: 20px; right: 20px; width: 55px; height: 55px; font-size: 1.8rem; }
+            .testi-avatar { width: 100%; max-width: 280px; }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="container nav-inner">
+            <a href="#" class="logo">AM<span>.</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#works" class="nav-link">Works</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#testimonials" class="nav-link">Clients</a>
+            </div>
+            <a href="https://wa.me/917268930700" target="_blank" class="btn btn-outline desktop-btn">Let's Talk</a>
+            <i class="fa-solid fa-bars menu-toggle" id="menuToggle"></i>
+        </div>
+    </nav>
+
+    <!-- NEW HERO SECTION (Split Modern Layout) -->
+    <section class="hero bg-alternate">
+        <div class="hero-glow"></div>
+        <div class="container hero-wrap">
+            <div class="hero-text">
+                <div class="hero-badge">Hi, I'm Ankit Maurya 👋</div>
+                <h1>Full Stack <span class="orange-text">Developer</span><br>& Digital Marketer</h1>
+                <p>I build premium web experiences and manage high-ROI advertising campaigns that scale businesses. Total digital growth, all in one place.</p>
+                <div class="hero-btns">
+                    <a href="#works" class="btn btn-orange">View Portfolio</a>
+                    <a href="https://wa.me/917268930700" target="_blank" class="btn btn-outline">Let's Chat</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <!-- High-End Abstract 3D shape -->
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Creative Tech Design" class="abstract-shape floating">
+                
+                <div class="glass-card gc-1 floating-delay">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <div>
+                        <h4>Google #1</h4>
+                        <span>SEO Rankings</span>
+                    </div>
+                </div>
+                
+                <div class="glass-card gc-2 floating-delay-2">
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <div>
+                        <h4>Pixel Perfect</h4>
+                        <span>Web Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+        <div class="container about-wrap">
+            <div class="about-img">
+                <div class="about-shape"></div>
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="About Ankit">
+            </div>
+            <div class="about-text">
+                <div class="sec-title" style="text-align: left; margin-bottom: 25px;">
+                    <span>About Me</span>
+                    <h2>Navigating Digital Growth, One Campaign at a Time</h2>
+                </div>
+                <p>I don't just build websites; I build comprehensive digital assets. From crafting fast, SEO-optimized websites to managing high-ROI Google and Meta Ads, I provide complete digital marketing solutions that grow your overall business.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h4>SEO Ranking</h4>
+                        <p>Google #1 Page Results</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Web Dev</h4>
+                        <p>Fast & Scalable Code</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Paid Ads</h4>
+                        <p>High ROI Campaigns</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Social Media</h4>
+                        <p>Brand Awareness</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-wrapper">
+        <div class="marquee-inner">
+            <div class="marquee-content">
+                <!-- Repeated twice for seamless scroll loop -->
+                <span>⭐ FULL STACK DEVELOPER</span>
+                <span>⭐ SEO SPECIALIST</span>
+                <span>⭐ GOOGLE & META ADS</span>
+                <span>⭐ SOCIAL MEDIA MANAGEMENT</span>
+                <span>⭐ DIGITAL MARKETING</span>
+                <span>⭐ FULL STACK DEVELOPER</span>
+                <span>⭐ SEO SPECIALIST</span>
+                <span>⭐ GOOGLE & META ADS</span>
+                <span>⭐ SOCIAL MEDIA MANAGEMENT</span>
+                <span>⭐ DIGITAL MARKETING</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Works -->
+    <section id="works" class="section bg-alternate">
+        <div class="container">
+            <div class="sec-title">
+                <span>Portfolio</span>
+                <h2>I am proud of these works</h2>
+            </div>
+            
+            <div class="works-grid">
+                <!-- Shubhdeep -->
+                <div class="work-card">
+                    <div class="work-img">
+                        <img src="./images/shubhdeep.png" alt="ShubhDeep Infra" onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800';">
+                    </div>
+                    <div class="work-info">
+                        <div>
+                            <h3>ShubhDeep Infra</h3>
+                            <p>Real Estate & Industrial Land Website</p>
+                        </div>
+                        <a href="https://shubhdeepinfra.com/" target="_blank" class="work-icon"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Astro by Abhishek -->
+                <div class="work-card">
+                    <div class="work-img">
+                        <img src="./images/astro.png" alt="Astro by Abhishek" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=800';">
+                    </div>
+                    <div class="work-info">
+                        <div>
+                            <h3>Astro by Abhishek</h3>
+                            <p>Professional Astrology Services</p>
+                        </div>
+                        <a href="https://astrobyabhishek.com/" target="_blank" class="work-icon"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Multinewshub -->
+                <div class="work-card">
+                    <div class="work-img">
+                        <img src="./images/multinews.png" alt="Multinewshub" onerror="this.src='https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&q=80&w=800';">
+                    </div>
+                    <div class="work-info">
+                        <div>
+                            <h3>Multinewshub</h3>
+                            <p>Multi-Niche News Portal</p>
+                        </div>
+                        <a href="https://mutlinewshub.com/" target="_blank" class="work-icon"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Chandigarh Cafe -->
+                <div class="work-card">
+                    <div class="work-img">
+                        <img src="./images/cafe.png" alt="Chandigarh Cafe" onerror="this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800';">
+                    </div>
+                    <div class="work-info">
+                        <div>
+                            <h3>The Chandigarh Cafe</h3>
+                            <p>Premium Restaurant Landing Page</p>
+                        </div>
+                        <a href="https://chandigarhcafe.vercel.app/" target="_blank" class="work-icon"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- SmileCare -->
+                <div class="work-card">
+                    <div class="work-img">
+                        <img src="./images/smilecare.png" alt="SmileCare Dental" onerror="this.src='https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800';">
+                    </div>
+                    <div class="work-info">
+                        <div>
+                            <h3>SmileCare Dental</h3>
+                            <p>Modern Dental Clinic Landing Page</p>
+                        </div>
+                        <a href="https://smilecare2.vercel.app/" target="_blank" class="work-icon"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Arjun Mehta -->
+                <div class="work-card">
+                    <div class="work-img">
+                        <img src="./images/arjun.png" alt="Arjun Mehta Coaching" onerror="this.src='https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800';">
+                    </div>
+                    <div class="work-info">
+                        <div>
+                            <h3>Arjun Mehta Coaching</h3>
+                            <p>Business Coach Personal Brand</p>
+                        </div>
+                        <a href="https://arjunmehta.vercel.app/" target="_blank" class="work-icon"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands -->
+    <section id="services" class="section">
+        <div class="container">
+            <div class="sec-title">
+                <span>Experience</span>
+                <h2>I Worked With Platforms</h2>
+            </div>
+            <div class="brands-grid">
+                <div class="brand-item">
+                    <i class="fa-brands fa-wordpress"></i>
+                    <span>WordPress</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fa-brands fa-google"></i>
+                    <span>Google Ads</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fa-brands fa-meta"></i>
+                    <span>Meta Ads</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fa-brands fa-react"></i>
+                    <span>React JS</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Analytics</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>Social Media</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fa-solid fa-pen-nib"></i>
+                    <span>Content</span>
+                </div>
+                <div class="brand-item">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <span>SEO</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section bg-alternate">
+        <div class="container">
+            <div class="sec-title">
+                <span>Process</span>
+                <h2>Standard Working Process</h2>
+            </div>
+            
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="step-num">01</div>
+                    <div class="p-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h4>Knowledge</h4>
+                    <p>Understanding your business, target audience, and core marketing goals to lay a solid foundation.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-num">02</div>
+                    <div class="p-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h4>Implementation</h4>
+                    <p>Developing the website, optimizing full SEO, and launching precisely targeted ad campaigns.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-num">03</div>
+                    <div class="p-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <h4>Scaling Growth</h4>
+                    <p>Analyzing results, managing social media channels dynamically, and rapidly scaling the ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="section">
+        <div class="container">
+            <div class="sec-title">
+                <span>Investments</span>
+                <h2>Pricing & Packages</h2>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Basic Web Design</h3>
+                    <div class="price-val">$100 <span>/site</span></div>
+                    <ul class="price-features">
+                        <li><i class="fa-solid fa-check"></i> Custom WordPress/Code</li>
+                        <li><i class="fa-solid fa-check"></i> Mobile Responsive</li>
+                        <li><i class="fa-solid fa-check"></i> Fast Loading Speed</li>
+                        <li><i class="fa-solid fa-check"></i> Basic On-Page SEO</li>
+                    </ul>
+                    <a href="https://wa.me/917268930700" target="_blank" class="btn">Choose Plan</a>
+                </div>
+
+                <div class="price-card active">
+                    <h3>Digital Marketing</h3>
+                    <div class="price-val">$150 <span>/month</span></div>
+                    <ul class="price-features">
+                        <li><i class="fa-solid fa-check"></i> Advanced SEO Optimization</li>
+                        <li><i class="fa-solid fa-check"></i> Google Ads Management</li>
+                        <li><i class="fa-solid fa-check"></i> Meta Ads Management</li>
+                        <li><i class="fa-solid fa-check"></i> Lead Generation Setup</li>
+                        <li><i class="fa-solid fa-check"></i> Monthly Analytics</li>
+                    </ul>
+                    <a href="https://wa.me/917268930700" target="_blank" class="btn">Choose Plan</a>
+                </div>
+
+                <div class="price-card">
+                    <h3>All-in-One Growth</h3>
+                    <div class="price-val">$300 <span>/month</span></div>
+                    <ul class="price-features">
+                        <li><i class="fa-solid fa-check"></i> Complete Web Maintenance</li>
+                        <li><i class="fa-solid fa-check"></i> Social Media Management</li>
+                        <li><i class="fa-solid fa-check"></i> Aggressive Ad Campaigns</li>
+                        <li><i class="fa-solid fa-check"></i> Full SEO Strategy</li>
+                        <li><i class="fa-solid fa-check"></i> Priority Direct Support</li>
+                    </ul>
+                    <a href="https://wa.me/917268930700" target="_blank" class="btn">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section bg-alternate">
+        <div class="container testi-wrap">
+            <div class="testi-content">
+                <div class="sec-title" style="text-align: left; margin-bottom: 10px;">
+                    <span>Reviews</span>
+                    <h2>What Clients Say About Us</h2>
+                </div>
+                
+                <i class="fa-solid fa-quote-left quotes-icon"></i>
+                
+                <div id="testi-1" style="display: block;">
+                    <p class="testi-text">"Ankit delivered exactly what we needed. Our new website looks incredibly professional, and his overall SEO and digital strategy implementation has already started bringing in organic inquiries for our industrial lands."</p>
+                    <div class="testi-author">
+                        <h4>Rajan</h4>
+                        <p>Owner, ShubhDeep Infra</p>
+                    </div>
+                </div>
+
+                <div id="testi-2" style="display: none;">
+                    <p class="testi-text">"Very professional and result-oriented work. The website is clean and fast, perfectly tailored for astrology services. The Google ads campaigns he setup are bringing quality, targeted leads consistently."</p>
+                    <div class="testi-author">
+                        <h4>Abhishek</h4>
+                        <p>Founder, Astro by Abhishek</p>
+                    </div>
+                </div>
+                
+                <div class="client-nav">
+                    <div class="client-dot active" style="background-image: url('https://ui-avatars.com/api/?name=Rajan&background=111&color=fff');" onclick="switchTestimonial(1, this)"></div>
+                    <div class="client-dot" style="background-image: url('https://ui-avatars.com/api/?name=Abhishek&background=ff6b00&color=fff');" onclick="switchTestimonial(2, this)"></div>
+                </div>
+            </div>
+            
+            <div class="testi-img">
+                <div class="blob-bg"></div>
+                <!-- Real client portrait placeholder -->
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Client" class="testi-avatar" id="testi-avatar-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-glow"></div>
+        <div class="container footer-content">
+            <div class="footer-top">
+                <div class="footer-cta">
+                    <h2>Let's Talk</h2>
+                    <p>Ready to scale your business with a complete web and digital marketing strategy? Send me a message and let's get started on your growth.</p>
+                </div>
+                <div class="target-wrapper">
+                    <a href="https://wa.me/917268930700" target="_blank" class="target-graphic">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-info">
+                <div class="f-item">
+                    <div class="f-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="f-text">
+                        <h5>Message on WhatsApp</h5>
+                        <a href="https://wa.me/917268930700">+91 72689 30700</a>
+                    </div>
+                </div>
+                <div class="f-item">
+                    <div class="f-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="f-text">
+                        <h5>Email Us</h5>
+                        <a href="mailto:expertankitmaurya@gmail.com">expertankitmaurya@gmail.com</a>
+                    </div>
+                </div>
+                <div class="f-item">
+                    <div class="f-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="f-text">
+                        <h5>Location</h5>
+                        <a href="#">Chandigarh, India</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ankit Maurya. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating WhatsApp -->
+        <a href="https://wa.me/917268930700" target="_blank" class="whatsapp-float">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                menuToggle.classList.remove('fa-bars');
+                menuToggle.classList.add('fa-xmark');
+            } else {
+                menuToggle.classList.remove('fa-xmark');
+                menuToggle.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('fa-xmark');
+                menuToggle.classList.add('fa-bars');
+            });
+        });
+
+        // Testimonials toggle
+        function switchTestimonial(num, el) {
+            document.querySelectorAll('.client-dot').forEach(d => d.classList.remove('active'));
+            el.classList.add('active');
+            
+            if(num === 1) {
+                document.getElementById('testi-1').style.display = 'block';
+                document.getElementById('testi-2').style.display = 'none';
+                document.getElementById('testi-avatar-img').src = 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80';
+            } else {
+                document.getElementById('testi-1').style.display = 'none';
+                document.getElementById('testi-2').style.display = 'block';
+                document.getElementById('testi-avatar-img').src = 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80';
+            }
+        }
+    </script>
+</body>
+</html>
